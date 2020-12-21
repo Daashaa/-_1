@@ -28,23 +28,18 @@ while True:
     if len(y) == 0:
         print("В строке не обнаружено числа")
         continue
-    number = int(y)
-    x.append(number)
-
+    n = int(y)
+    x.append(n)
     if i % 2 != 0:
-        sum += number
+        sum += n
         sum_count += 1
     else:
-        pr = pr * number
+        pr = pr * n
         pr_sum += 1
-
     i += 1
     if x[len(x) - 1] == 55555:
         break
-
-
 print("Сумма:", sum)
 print("Количество слагаемых:", sum_count)
-
 print("Произведение:", pr)
 print("Количество множителей:", pr_sum)
