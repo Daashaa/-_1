@@ -29,8 +29,8 @@ def get_matrix(row, column):
     return matrix
 def listsum(list):
     sum = 0
-    for element in list:
-        sum += element
+    for z in list:
+        sum += z
     return sum
 def print_matrix(matrix):
     i = 0
