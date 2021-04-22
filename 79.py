@@ -14,40 +14,20 @@
 Создать прямоугольную матрицу A, имеющую N строк и M столбцов со случайными элементами.
 Разделить элементы каждого столбца матрицы на элемент этого столбца с наибольшим значением.
 """
-import random
+import numpy as np 
 N = int(input("Введите количество строк: "))
 M = int(input("Введите количество столбцов: "))
-def get_row(column):
-    col = []
-    for i in range(0, column):
-        col.append(random.randint(0, 9))
-    return col
-def get_matrix(row, column):
-    matrix = []
-    for i in range(0, row):
-        matrix.append(get_row(column))
-    return matrix
-def print_matrix(matrix):
-    i = 0
-    while i < len(matrix):
-        j = 0
-        row = matrix[i]
-        while j < len(row):
-            column = row[j]
-            print(column, end=' ')
-            j += 1
-        print()
-        i += 1
-def get_column(matrix, index):
+print(f'\nЗадан размер матрицы случайных целых чисел: [{N}, {M}]')
+np.random.seed(0)
+A = np.random.randint(10, size = (N, M))
+print('\nПрямоугольная матрица случайных целых чисел:\n', A)
+def get_column(A, index):
     column = []
     i = 0
-    while i < len(matrix):
-        column.append(matrix[i][index])
+    while i < len(A):
+        column.append(A[i][index])
         i += 1
     return column
-A = get_matrix(N, M)
-print("Исходная матрица:")
-print_matrix(A)
 original_matrix = A.copy()
 i = 0
 while i < len(A):
@@ -59,5 +39,4 @@ while i < len(A):
         A[i][j] = round(A[i][j], 1)
         j += 1
     i += 1
-print("Модифицированная матрица:")
-print_matrix(A)
+print("\nМодифицированная матрица:\n", A)
